@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Customer Churn Prediction</h1>
+            <p>Identify customers likely to stop using your service</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2>Customer Information</h2>
+                <form id="churnForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" required min="18" max="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tenure">Tenure (months):</label>
+                            <input type="number" id="tenure" name="tenure" required min="1" max="120">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthly_charges">Monthly Charges ($):</label>
+                            <input type="number" id="monthly_charges" name="monthly_charges" step="0.01" required min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="total_charges">Total Charges ($):</label>
+                            <input type="number" id="total_charges" name="total_charges" step="0.01" required min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contract_type">Contract Type:</label>
+                            <select id="contract_type" name="contract_type" required>
+                                <option value="">Select Contract</option>
+                                <option value="Month-to-month">Month-to-month</option>
+                                <option value="One year">One year</option>
+                                <option value="Two year">Two year</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="internet_service">Internet Service:</label>
+                            <select id="internet_service" name="internet_service" required>
+                                <option value="">Select Service</option>
+                                <option value="DSL">DSL</option>
+                                <option value="Fiber optic">Fiber optic</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="online_security">Online Security:</label>
+                            <select id="online_security" name="online_security" required>
+                                <option value="">Select Option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tech_support">Tech Support:</label>
+                            <select id="tech_support" name="tech_support" required>
+                                <option value="">Select Option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="streaming_tv">Streaming TV:</label>
+                            <select id="streaming_tv" name="streaming_tv" required>
+                                <option value="">Select Option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthly_usage_gb">Monthly Usage (GB):</label>
+                            <input type="number" id="monthly_usage_gb" name="monthly_usage_gb" required min="0" max="2000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="support_calls">Support Calls (last month):</label>
+                            <input type="number" id="support_calls" name="support_calls" required min="0" max="20">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment_delay">Payment Delays (last 3 months):</label>
+                            <input type="number" id="payment_delay" name="payment_delay" required min="0" max="5">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="loadSample" class="btn-secondary">Load Sample Data</button>
+                        <button type="submit" id="predictBtn" class="btn-primary">Predict Churn Risk</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Prediction Results</h2>
+                <div class="result-card">
+                    <div class="risk-level" id="riskLevel">
+                        <!-- Dynamic content -->
+                    </div>
+                    <div class="probability" id="probability">
+                        <!-- Dynamic content -->
+                    </div>
+                    <div class="recommendations" id="recommendations">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing customer data...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
